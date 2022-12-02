@@ -4,6 +4,7 @@ import Root from './pages/Root';
 import NotFound from './pages/NotFound';
 import Videos from './pages/Videos';
 import VideoDetail from './pages/VideosDetail';
+import { useEffect, useState } from 'react';
 
 const router = createBrowserRouter([
   {
@@ -32,8 +33,19 @@ const router = createBrowserRouter([
   }
 ]);
 
-function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+function App({ youtube }) {
+
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    youtube.mostPopular().then(videos => setVideos(videos))
+  }, [youtube])
+
+  return (
+    <RouterProvider router={router}>
+      {videos}
+    </RouterProvider>
+  );
 }
 
 export default App;
