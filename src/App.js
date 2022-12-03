@@ -42,9 +42,7 @@ function App({ youtube }) {
   }, [youtube])
 
   return (
-    <RouterProvider router={router}>
-      {videos}
-    </RouterProvider>
+    <RouterProvider router={router} videos={videos}></RouterProvider>
   );
 }
 
