@@ -9,7 +9,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const youtube = new Youtube(process.env.REACT_APP_YOUTUBE_API_KEY);
 root.render(
   <React.StrictMode>
-    <App youtube={youtube} />
+    <div className='container mx-auto px-4'>
+      <App youtube={youtube} />
+    </div>
   </React.StrictMode>
 );
 

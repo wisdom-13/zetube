@@ -13,7 +13,7 @@ export default function SearchBar() {
   }
 
   return (
-    <div>
+    <div className='flex'>
       <Link to='/'>
         <h1 className='text-3xl'>zetube</h1>
       </Link>
