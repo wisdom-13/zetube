@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { BsYoutube, BsSearch } from 'react-icons/bs'
 
 export default function SearchBar() {
 
@@ -13,21 +14,18 @@ export default function SearchBar() {
   }
 
   return (
-    <div className='flex'>
-      <Link to='/'>
-        <h1 className='text-3xl'>zetube</h1>
+    <header className='w-full flex p-4 border-b border-zinc-600 mb-4'>
+      <Link to='/' className='flex items-center'>
+        <BsYoutube className='text-4xl text-brand mt-2 mr-1' />
+        <h1 className='font-bold ml-2 text-3xl'>zetube</h1>
       </Link>
 
-
-      <form onSubmit={heandelSubmit}>
-        <input type="text" value={keyword} onChange={((e) => setKeyword(e.target.value))} placeholder='Search'
-          class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-          focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-          disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-          invalid:border-pink-500 invalid:text-pink-600
-          focus:invalid:border-pink-500 focus:invalid:ring-pink-500
-        "/>
+      <form className='w-full flex justify-center' onSubmit={heandelSubmit}>
+        <input className='w-7/12 p-2 outline-none bg-black text-green-50' type="text" value={keyword} onChange={((e) => setKeyword(e.target.value))} placeholder='Search' />
+        <button className='bg-zinc-600 px-4'>
+          <BsSearch />
+        </button>
       </form>
-    </div>
+    </header>
   );
 };
