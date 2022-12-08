@@ -3,15 +3,46 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Youtube from './service/youtube';
+// import Youtube from './service/youtube';
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import NotFound from './pages/NotFound';
+import Videos from './pages/Videos';
+import VideoDetail from './pages/VideosDetail';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        index: true,
+        element: <Videos />,
+
+      },
+      {
+        path: '/videos',
+        element: <Videos />
+      },
+      {
+        path: '/videos/:keyword',
+        element: <Videos />
+      },
+      {
+        path: '/videos/watch/:videoId',
+        element: <VideoDetail />
+      },
+    ]
+  }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const youtube = new Youtube(process.env.REACT_APP_YOUTUBE_API_KEY);
+// const youtube = new Youtube(process.env.REACT_APP_YOUTUBE_API_KEY);
+
 root.render(
   <React.StrictMode>
-    <div className='container mx-auto px-4'>
-      <App youtube={youtube} />
-    </div>
+    <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
 );
 
