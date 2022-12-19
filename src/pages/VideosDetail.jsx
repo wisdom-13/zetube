@@ -1,15 +1,19 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { formatAgo } from '../util/date';
+
 
 export default function VideoDetail({ video }) {
-  // const { videoId } = useParams();
+
+  const { title, thumbnails, channelTitle, publishedAt } = video.snippet;
+
   return (
-    // <div>VideoDetail : {videoId}</div>
-    <div>
-      <img src={video.snippet.thumbnails.high.url}></img>
-      <h3>{video.snippet.title}</h3>
-      <h5>{video.snippet.channelTitle}</h5>
-      <h5>{video.snippet.publishedAt}</h5>
-    </div>
+    <li>
+      <img src={thumbnails.medium.url}></img>
+      <p>
+        <h3>{title}</h3>
+        <h5>{channelTitle}</h5>
+        <h5>{formatAgo(publishedAt, 'ko')}</h5>
+      </p>
+    </li>
   );
 }
