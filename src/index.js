@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Videos from './pages/Videos';
-import VideoDetail from './pages/VideosDetail';
+import VideoDetail from './pages/VideoDetail';
 
 const router = createBrowserRouter([
   {

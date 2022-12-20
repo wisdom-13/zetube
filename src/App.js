@@ -11,16 +11,6 @@ const queryClient = new QueryClient();
 
 function App({ youtube }) {
 
-  // const [videos, setVideos] = useState([]);
-
-  // useEffect(() => {
-  //   youtube.mostPopular().then(videos => setVideos(videos))
-  // }, [youtube])
-
-  // return (
-  //   <RouterProvider router={router} videos={videos}></RouterProvider>
-  // );
-
   return (
     <>
       <SearchBar />
