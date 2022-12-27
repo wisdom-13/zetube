@@ -1,10 +1,7 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import VideosCard from '../components/VideosCard';
-// import { search } from '../api/youtube';
-// import FakeYoutube from '../api/fakeYoutubeClient';
-// import Youtube from '../api/youtube';
 import { useYoutubeApi } from '../context/YoutubeApiContext';
 
 export default function Videos() {
@@ -12,7 +9,7 @@ export default function Videos() {
   const { youtube } = useYoutubeApi();
 
   const { isLoading, error, data: videos } = useQuery(
-    ['videos', keyword], () => youtube.search(keyword));
+    ['videos', keyword], () => youtube.search(keyword), { staleTime: 1000 * 60 });
   return (
     <>
       {isLoading && <p>Loading...</p>}

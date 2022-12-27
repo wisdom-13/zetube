@@ -6,7 +6,7 @@ import VideosCard from './VideosCard';
 export default function RelatedVideos({ id }) {
 
   const { youtube } = useYoutubeApi();
-  const { error, isLoading, data: videos } = useQuery(['related', id], () => youtube.relatedVideos(id));
+  const { error, isLoading, data: videos } = useQuery(['related', id], () => youtube.relatedVideos(id), { staleTime: 1000 * 60 * 5 });
 
   return (
     <>

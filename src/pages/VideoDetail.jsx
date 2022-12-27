@@ -14,7 +14,7 @@ export default function VideoDetail() {
         <iframe type="text/html" width="100%" height="400px"
           title="youtube video player"
           src={`https://www.youtube.com/embed/${video.id}`}
-          frameBorder="0" allowFullScreen></iframe>
+          allowFullScreen></iframe>
         <div className='p-8'>
           <h2 className='text-xl font-bold'>{title}</h2>
           <ChannelInfo id={channelId} name={channelTitle}></ChannelInfo>
