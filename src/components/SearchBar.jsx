@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { BsYoutube, BsSearch } from 'react-icons/bs'
 
 export default function SearchBar() {
 
-  const [keyword, setKeyword] = useState('');
+  const { keyword } = useParams();
   const navigate = useNavigate();
+  const [text, setText] = useState('');
 
   const heandelSubmit = (e) => {
     e.preventDefault();
-    setKeyword('');
     navigate(`/videos/${keyword}`)
   }
+
+  useEffect(() => setText(keyword || ''), [keyword])
 
   return (
     <header className='w-full flex p-4 border-b border-zinc-600 mb-4'>
@@ -21,7 +23,7 @@ export default function SearchBar() {
       </Link>
 
       <form className='w-full flex justify-center' onSubmit={heandelSubmit}>
-        <input className='w-7/12 p-2 outline-none bg-black text-green-50' type="text" value={keyword} onChange={((e) => setKeyword(e.target.value))} placeholder='Search' />
+        <input className='w-7/12 p-2 outline-none bg-black text-green-50' type="text" value={text} onChange={((e) => setText(e.target.value))} placeholder='Search' />
         <button className='bg-zinc-600 px-4'>
           <BsSearch />
         </button>
