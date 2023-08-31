@@ -10,15 +10,13 @@ export function withRouter(routes, initialEntry = '/') {
   )
 }
 
-export function whitAllcontexts(children, youtube) {
+export function withAllContexts(children, youtube) {
   const testClient = createTestQueryClient();
   return (
-    <YoutubeApiContext.Provider value={youtube}>
-      <QueryClientProvider client={testClient}>
-        {children}
-      </QueryClientProvider>
+    <YoutubeApiContext.Provider value={{ youtube }}>
+      <QueryClientProvider client={testClient}>{children}</QueryClientProvider>
     </YoutubeApiContext.Provider>
-  )
+  );
 }
 
 function createTestQueryClient() {
