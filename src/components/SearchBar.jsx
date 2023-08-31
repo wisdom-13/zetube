@@ -10,7 +10,7 @@ export default function SearchBar() {
 
   const heandelSubmit = (e) => {
     e.preventDefault();
-    navigate(`/videos/${keyword}`)
+    navigate(`/videos/${text}`)
   }
 
   useEffect(() => setText(keyword || ''), [keyword])
