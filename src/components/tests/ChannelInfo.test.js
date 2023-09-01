@@ -14,7 +14,7 @@ describe('ChannelInfo', () => {
     fakeYoutube.channelImageURL.mockImplementation(() => 'url');
     const { asFragment } = renderChannelInfo();
 
-    await waitFor(() => screen.getByRole('img'));
+    await screen.findByRole('img')
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -29,7 +29,7 @@ describe('ChannelInfo', () => {
   it('renders with URL', async () => {
     fakeYoutube.channelImageURL.mockImplementation(() => 'url');
     renderChannelInfo();
-    await waitFor(() => expect(screen.getByRole('img')).toBeInTheDocument());
+    await screen.findByRole('img')
   });
 
   function renderChannelInfo() {
