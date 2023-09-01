@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RelatedVideos renders correctly 1`] = `
+<DocumentFragment>
+  <ul>
+    <li
+      class="flex gap-1 p-2"
+    >
+      <img
+        alt="title"
+        class="w-60 mr-2"
+        src="http://image/"
+      />
+      <div>
+        <h3
+          class="font-semibold my-2 line-clamp-2"
+        >
+          title
+        </h3>
+        <h5
+          class="text-sm opacity-80"
+        >
+          channelTitle
+        </h5>
+        <h5
+          class="text-sm opacity-80"
+        >
+          방금
+        </h5>
+      </div>
+    </li>
+    <li
+      class="flex gap-1 p-2"
+    >
+      <img
+        alt="title"
+        class="w-60 mr-2"
+        src="http://image/"
+      />
+      <div>
+        <h3
+          class="font-semibold my-2 line-clamp-2"
+        >
+          title
+        </h3>
+        <h5
+          class="text-sm opacity-80"
+        >
+          channelTitle
+        </h5>
+        <h5
+          class="text-sm opacity-80"
+        >
+          방금
+        </h5>
+      </div>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
