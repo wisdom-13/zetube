@@ -9,9 +9,7 @@ describe('Youtube App', () => {
     cy.intercept('GET', /(search)/g, {
       fixture: 'search.json'
     })
-    cy.intercept('GET', /(mostPopular)/g, {
-      fixture: 'popular.json'
-    })
+
     cy.viewport(1200, 800);
     cy.visit('/')
   });
@@ -22,5 +20,19 @@ describe('Youtube App', () => {
 
   it('shows popluar video first', () => {
     cy.findByText('Popular video').should('exist')
+  })
+
+  it('searches by keyword', () => {
+    cy.findByPlaceholderText('Search').type('샤이니');
+    cy.findByRole('button').click();
+    cy.findByText('Search Result').should('exist');
+  })
+
+  it('goes to detail page', () => {
+    cy.findAllByRole('listitem').first().click();
+    cy.findByTitle('Popular video').should('exist');
+    cy.findByText('Popular video').should('exist');
+    cy.findByText('Search Result').should('exist');
+
   })
 })

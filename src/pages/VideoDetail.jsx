@@ -12,7 +12,7 @@ export default function VideoDetail() {
     <section className='flex flex-col lg:flex-row'>
       <article className='basis-4/6'>
         <iframe type="text/html" width="100%" height="400px"
-          title="youtube video player"
+          title={title}
           src={`https://www.youtube.com/embed/${video.id}`}
           allowFullScreen></iframe>
         <div className='p-8'>
